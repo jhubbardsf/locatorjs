@@ -34,16 +34,20 @@ export function buildLink(
 	const template = linkTemplateUrl(targets, options, localLinkTypeOrTemplate);
 	const replacePathObj = options.getOptions().replacePath;
 	let evaluated = evalTemplate(template, params);
+	// console.log("LOCATOR JSH0 BEFORE IF: ", { evaluated });
 	if (
 		evaluated.includes(
 			"AccessPortal/Users/josh/Engineering/Silks-MonoRepo/Frontends/"
 		)
 	) {
-		evaluated.replace(
+		// console.log("LOCATOR JSH1:", { evaluated });
+		evaluated = evaluated.replace(
 			"AccessPortal/Users/josh/Engineering/Silks-MonoRepo/Frontends/",
 			""
 		);
+		// console.log("LOCATOR JSH2:", { evaluated });
 	}
+	// console.log("LOCATOR JSH3 AFTER IF: ", { evaluated });
 	if (replacePathObj) {
 		evaluated = transformPath(
 			evaluated,
